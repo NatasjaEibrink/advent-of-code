@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  * Hello world!
  *
  */
-public class App {
+public class DayOne {
 
     public static void main( String[] args ) throws IOException {
         List<String> stringList = null;
