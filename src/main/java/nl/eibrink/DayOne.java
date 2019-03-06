@@ -3,6 +3,7 @@ package nl.eibrink;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -10,9 +11,10 @@ import java.util.stream.Stream;
 
 public class DayOne {
 
-    //Part one
-
     public static void main( String[] args ) throws IOException {
+
+        //Part one
+
         List<String> stringList;
 
         try (Stream<String> stream = Files.lines(Paths.get("src/main/resources/puzzle-input"))) {
@@ -24,13 +26,13 @@ public class DayOne {
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
 
+        intList.stream()
+                .reduce((x,y) -> x+y)
+                .ifPresent(System.out::println);
 
-        int sum = intList.stream().mapToInt(Integer::intValue).sum();
-
-        System.out.println(sum);
+        // part two
 
 
-        //Part two
 
 
     }
