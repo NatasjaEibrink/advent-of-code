@@ -7,16 +7,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**
- * Hello world!
- *
- */
+
 public class DayOne {
 
-    public static void main( String[] args ) throws IOException {
-        List<String> stringList = null;
+    //Part one
 
-        try (Stream<String> stream = Files.lines(Paths.get("puzzle-input" ))) {
+    public static void main( String[] args ) throws IOException {
+        List<String> stringList;
+
+        try (Stream<String> stream = Files.lines(Paths.get("src/main/resources/puzzle-input"))) {
             stringList = stream.collect(Collectors.toList());
         }
 
@@ -29,6 +28,10 @@ public class DayOne {
         int sum = intList.stream().mapToInt(Integer::intValue).sum();
 
         System.out.println(sum);
-    }
 
+
+        //Part two
+
+
+    }
 }
