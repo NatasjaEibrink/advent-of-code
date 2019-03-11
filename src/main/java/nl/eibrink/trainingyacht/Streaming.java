@@ -1,4 +1,4 @@
-package nl.eibrink;
+package nl.eibrink.trainingyacht;
 
 import java.util.Arrays;
 import java.util.List;
