@@ -3,15 +3,15 @@ package nl.eibrink;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
 public class DayOne {
 
-    public static void main( String[] args ) throws IOException {
+    public static void main(String[] args) throws IOException {
 
         //Part one
 
@@ -27,13 +27,22 @@ public class DayOne {
                 .collect(Collectors.toList());
 
         intList.stream()
-                .reduce((x,y) -> x+y)
+                .reduce((x, y) -> x + y)
                 .ifPresent(System.out::println);
 
-        // part two
+        // Part two
 
 
+        List<Integer> resultList = new ArrayList<>();
+        int currentFrequency = 0;
 
+        for(int i = 0; i < intList.size()-1; i++) {
+            int nextFrequency = intList.get(i);
+            int resultingFrequency = currentFrequency + nextFrequency;
+            resultList.add(resultingFrequency);
+            currentFrequency = resultingFrequency;
+        }
+        System.out.println(resultList);
 
     }
 }
