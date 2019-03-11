@@ -1,9 +1,6 @@
 package nl.eibrink.adventofcode;
 
-        import java.io.BufferedReader;
-        import java.io.FileInputStream;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
+        import java.io.*;
         import java.nio.charset.Charset;
         import java.util.ArrayList;
         import java.util.List;
@@ -40,10 +37,29 @@ public class DayOne2015 {
         }
         System.out.println(currentFloor);
 
-        //part two
+        findRightPosition();
+
+    }
+
+    private static void findRightPosition() throws IOException {
+
+        List<Character> characterList = new ArrayList<>();
+
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        new FileInputStream("src/main/resources/floor-directions"),
+                        Charset.forName("UTF-8")));
+        int c;
+        while ((c = reader.read()) != -1) {
+            char character = (char) c;
+            characterList.add(character);
+        }
 
         boolean basementNotReached = true;
+
         int destinationFloor = -1;
+
+        int currentFloor = 0;
 
         int positionCounter = 0;
 
@@ -56,7 +72,7 @@ public class DayOne2015 {
                     currentFloor--;
                 }
 
-                ++positionCounter;
+                positionCounter++;
 
                 if (currentFloor == destinationFloor) {
                     basementNotReached = false;
@@ -66,6 +82,5 @@ public class DayOne2015 {
 
             }
         }
-
     }
 }
