@@ -33,20 +33,27 @@ public class DayOne {
         // Part two
 
 
-        List<Integer> resultList = new ArrayList<>();
+
+        List<Integer> resultingFrequencies = new ArrayList<>();
+
+        boolean frequencyNotSeenBefore = true;
         int currentFrequency = 0;
 
-        for(int i = 0; i < intList.size()-1; i++) {
-            int nextFrequency = intList.get(i);
-            int resultingFrequency = currentFrequency + nextFrequency;
-            resultList.add(resultingFrequency);
-            currentFrequency = resultingFrequency;
+        while(frequencyNotSeenBefore) {
+
+            for (int i = 0; i < intList.size(); i++) {
+                int nextFrequency = intList.get(i);
+                int resultingFrequency = currentFrequency + nextFrequency;
+                currentFrequency = resultingFrequency;
+                if(resultingFrequencies.contains(resultingFrequency)){
+                    frequencyNotSeenBefore = false;
+                    System.out.println(resultingFrequency);
+                    break;
+                } else {
+                    resultingFrequencies.add(resultingFrequency);
+                    continue;
+                }
+            }
         }
-        System.out.println(resultList);
-
-        Map<Integer, Long> result = resultList.stream()
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
-        System.out.println(result);
     }
 }
