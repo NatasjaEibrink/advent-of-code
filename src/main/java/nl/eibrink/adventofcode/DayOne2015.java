@@ -42,6 +42,30 @@ public class DayOne2015 {
 
         //part two
 
-        
+        boolean basementNotReached = true;
+        int destinationFloor = -1;
+
+        int positionCounter = 0;
+
+        while(basementNotReached) {
+
+            for (char i = 0; i < characterList.size(); i++) {
+                if (characterList.get(i).equals('(')) {
+                    currentFloor++;
+                } else if (characterList.get(i).equals(')')) {
+                    currentFloor--;
+                }
+
+                ++positionCounter;
+
+                if (currentFloor == destinationFloor) {
+                    basementNotReached = false;
+                    System.out.println(positionCounter);
+                    break;
+                }
+
+            }
+        }
+
     }
 }
