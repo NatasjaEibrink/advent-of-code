@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,5 +44,9 @@ public class DayOne {
         }
         System.out.println(resultList);
 
+        Map<Integer, Long> result = resultList.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        System.out.println(result);
     }
 }
